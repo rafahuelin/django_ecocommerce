@@ -31,7 +31,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
 
     # Products App urls
-    path('products/', include('products.urls')),
+    path('products/', include('products.urls', namespace='products')),
 ]
 
 if settings.DEBUG:
