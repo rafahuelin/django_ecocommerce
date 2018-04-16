@@ -6,6 +6,27 @@ from django.views.generic.detail import DetailView
 from .models import Product
 
 
+class ProductFeaturedListView(ListView):
+    # queryset = Product.objects.all()
+    template_name = "products/list.html"
+
+    def get_queryset(self, *args, **kwargs):
+        request = self.request
+        return Product.objects.all().featured()  # Custom Queryset # Previously -> Product.objects.featured()
+        # <-- Because changed # <-- queryset in models.py --> Productmanager --> get_queryset
+
+
+class ProductFeaturedDetailView(DetailView):
+    queryset = Product.objects.all().featured()  # Custom Queryset  # Previously -> Product.objects.featured()
+    # <-- Because changed
+    # <-- queryset in models.py --> Productmanager --> get_queryset
+    template_name = "products/featured-detail.html"
+
+    # def get_queryset(self, *args, **kwargs):
+    #     request = self.request
+    #     return Product.objects.featured()
+
+
 class ProductListView(ListView):
     # queryset = Product.objects.all()
     template_name = "products/list.html"
