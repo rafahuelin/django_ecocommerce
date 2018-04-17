@@ -6,6 +6,7 @@ from .forms import ContactForm, LoginForm, RegisterForm
 
 
 def home_page(request):
+    print(request.session.get('first_name', 'Unknown'))  # Getter
     context = {
         "title": "Home page",
         "content": "Welcome to the home page.",
