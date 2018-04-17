@@ -33,6 +33,9 @@ urlpatterns = [
 
     # Products App urls
     path('products/', include('products.urls', namespace='products')),
+
+    # Search App urls
+    path('search/', include('search.urls', namespace='search')),
 ]
 
 if settings.DEBUG:
