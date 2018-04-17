@@ -35,6 +35,8 @@ class ProductQuerySet(models.query.QuerySet):  # Custom Queryset
         lookups = (Q(title__icontains=query) |
                   Q(description__icontains=query) |
                   Q(price__icontains=query))
+        # Q(tag__name__icontains=query)
+        # tshirt, t-shirt, t shirt, red, green, blue
         return self.filter(lookups).distinct()
 
 
