@@ -38,7 +38,7 @@ urlpatterns = [
     path('search/', include('search.urls', namespace='search')),
 
     # Cart App urls
-    path('cart/', cart_home, name='cart'),
+    path('cart/', include('carts.urls', namespace='cart')),
 ]
 
 if settings.DEBUG:
