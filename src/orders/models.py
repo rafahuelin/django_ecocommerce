@@ -1,3 +1,4 @@
+import math
 from django.db import models
 from django.db.models.signals import pre_save, post_save
 
@@ -13,6 +14,8 @@ ORDER_STATUS_CHOICES = (
 )
 
 # Unique, Random
+
+
 class Order(models.Model):
     order_id = models.CharField(max_length=120, blank=True)
     # billing_profile = ?
@@ -29,8 +32,10 @@ class Order(models.Model):
     def update_total(self):
         cart_total = self.cart.total
         shipping_total = self.shipping_total
-        new_total = cart_total + shipping_total
-        self.total = new_total
+        new_total = math.fsum([cart_total, shipping_total])
+        formatted_total = format(new_total, '.2f')
+        print(type(new_total))
+        self.total = formatted_total
         self.save()
         return new_total
 
