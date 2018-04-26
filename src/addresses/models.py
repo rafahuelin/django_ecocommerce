@@ -8,6 +8,7 @@ ADDRESS_TYPES = (
     ('shipping', 'Shipping'),
 )
 
+
 class Address(models.Model):
     billing_profile = models.ForeignKey(BillingProfile, on_delete=models.CASCADE)
     address_type = models.CharField(max_length=120, choices=ADDRESS_TYPES)
@@ -15,6 +16,7 @@ class Address(models.Model):
     address_line_2 = models.CharField(max_length=120, null=True, blank=True)
     city = models.CharField(max_length=120)
     country = models.CharField(max_length=120, default='United States of America')
+    state = models.CharField(max_length=120, default=False)
     postal_code = models.CharField(max_length=120)
 
     def __str__(self):
