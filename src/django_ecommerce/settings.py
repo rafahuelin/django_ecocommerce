@@ -58,12 +58,13 @@ INSTALLED_APPS = [
 
     # Custom Apps
     'accounts',
+    'addresses',
+    'billing',
+    'carts',
+    'orders',
     'products',
     'search',
     'tags',
-    'carts',
-    'orders',
-    'billing',
 ]
 
 MIDDLEWARE = [
