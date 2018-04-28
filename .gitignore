@@ -110,3 +110,6 @@ venv.bak/
 secrets.json
 /static_cdn/
 /src/static_storage/img/
+
+
+/fasttracktojquery/

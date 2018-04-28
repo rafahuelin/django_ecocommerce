@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+
+    <title>Hello, world!</title>
+
+    <style>
+        /*body {
+          background-color: red;
+        }*/
+        h1 {
+          color: green;
+        }
+        #header-3 {
+        }
+        .description {
+            width: 250px;
+            height: 300px;
+            {#padding: 30px 10px;#}
+        }
+      </style>
+
+  </head>
+  <body>
+
+    <div class="container">
+        <div class="row">
+            <div class="col mx-auto">
+                <h3>Form:</h3>
+                <form class="new-content-form" action="/some/url/link" method="post">
+                    <textarea name="content" class="form-control"></textarea>
+                    <input type="submit" value="Save">
+                </form>
+            </div>
+        </div>
+        <br>
+        <hr>
+        <br>
+        <div class="formDataSubmitted"></div>
+
+    </div>
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+
+
+    <h1 class="header">Hello, world!!</h1>
+    <h1 class="header">Hello, world!!</h1>
+    <h1 class="header" id="header-3">Header 3</h1>
+    <h1 class="header">Hello, world!!</h1>
+    <p class="description"><a href="/abc/">Some Link</a></p>
+    <p class="description">First description</p>
+    <p class="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur ipsa, voluptas? Aliquam
+        aliquid at atque, est facere fugit harum hic labore, modi nesciunt nostrum officia quae quo, recusandae saepe
+        tempore vel vero vitae voluptate voluptatum. Assumenda dicta dolores est harum, id, inventore, libero minus
+        nesciunt nisi pariatur quae qui quos sint temporibus veniam? Autem consequatur culpa ea magni quidem temporibus
+        velit voluptates voluptatum? Blanditiis dicta dolor, dolorem ea enim exercitationem, fugiat illo itaque minima
+        modi molestiae molestias mollitia numquam perferendis quia sed suscipit tempore vel vitae voluptatum!
+        Consequatur corporis, ea eaque inventore laboriosam magni minima nesciunt omnis quam, quo sed sint, tempora ut?
+        Aliquid autem culpa cumque cupiditate deleniti doloremque doloribus eaque earum et exercitationem, facilis fuga
+        fugiat fugit impedit ipsum libero nisi non nostrum nulla officiis praesentium quaerat rem reprehenderit.</p>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+
+{#    <script type="text/javascript">#}
+{#        #}
+{#        $(document).ready(function () {#}
+{#            var num = 124;#}
+{#            var someString = "some string";#}
+{#            var someArray = [num, 9, 12333, "an so on"];#}
+{#            var someBool = true;#}
+{##}
+{#            $.each(someArray, function (index, obj) {#}
+{#                console.log(index, obj);#}
+{#                if (obj %2 === 0 && someBool) {#}
+{#                    console.log(obj, "is even");#}
+{#                } else if (obj %3 === 0) {#}
+{#                    console.log(obj, "is divisible by 3");#}
+{#                } else {#}
+{#                    console.log(obj, "false and/or is not even");#}
+{#                }#}
+{#            });#}
+{#        });#}
+{##}
+{#    </script>#}
+    
+{#<script type="text/javascript">#}
+{#        $(document).ready(function () {#}
+{#            var $descriptionItems = $(".description");#}
+{#            // console.log($descriptionItems.length);#}
+{#            #}
+{#            $.each($descriptionItems, function (index, obj) {#}
+{#                var item = $(this);#}
+{#                var actualHeight = item[0].scrollHeight;#}
+{#                var shouldBeHeight = item.height();#}
+{#                console.log(actualHeight, shouldBeHeight);#}
+{#                if (actualHeight > shouldBeHeight) {#}
+{#                    item.css("overflow-y", "scroll");#}
+{#                }#}
+{#                // console.log(index, item.height());#}
+{#                // console.log(index, obj);#}
+{#            });#}
+{##}
+{#            var header3 = $("#header-3");#}
+{#            header3.click(function (event) {#}
+{#                var $this = $(this);#}
+{#                console.log($this[0].scrollHeight);#}
+{#                console.log(event);#}
+{#                window.location.href = 'http://www.google.com/';#}
+{#            });#}
+{##}
+{##}
+{#            var descriptionLinks = $(".description a");#}
+{#            descriptionLinks.click(function (event) {#}
+{#                console.log(event);#}
+{#                event.preventDefault();#}
+{#                var $this = $(this);#}
+{#                var href = $this.attr("href");#}
+{#                console.log(href);#}
+{#                alert(href);#}
+{#                window.location.href = href;#}
+{#            });#}
+{##}
+{#        });#}
+{#    </script>#}
+
+
+    <script type="text/javascript">
+
+        $(document).ready(function(){
+            var contentForm = $(".new-content-form");
+            contentForm.submit(function (event) {
+                event.preventDefault();
+                var $this = $(this);
+                // console.log(contentForm.serialize());
+                var textAreaContent = $(this).find('textarea');
+                // console.log(textAreaContent.val());
+                // console.log(textAreaContent.attr("name"));
+                var formMethod = $(this).attr("method");
+                var formAction = $(this).attr("action");
+                var data = {
+                    "content": textAreaContent.val(),  // contentForm.attr("method")
+                    "method": formMethod,
+                    "action": formAction
+                }
+
+                $('.formDataSubmitted').text(textAreaContent.val() + " method is " + formMethod) ;
+                textAreaContent.val("");
+
+            });
+        });
+
+
+
+
+    </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+  </body>
+</html>
