@@ -20,7 +20,7 @@ from django.contrib import admin
 from django.contrib.auth.views import LogoutView
 from django.urls import path, include
 
-from carts.views import cart_home
+from carts.views import cart_home, cart_detail_api_view
 from accounts.views import login_page, register_page, guest_register_view
 from addresses.views import checkout_address_create_view, checkout_address_reuse_view
 from .views import home_page, about_page, contact_page
@@ -46,6 +46,7 @@ urlpatterns = [
 
     # Cart App urls
     path('cart/', include('carts.urls', namespace='cart')),
+    path('api/cart/', cart_detail_api_view, name='api-cart'),
 ]
 
 if settings.DEBUG:
