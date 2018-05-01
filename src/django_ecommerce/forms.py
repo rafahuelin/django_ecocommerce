@@ -26,7 +26,7 @@ class ContactForm(forms.Form):
 
     def clean_email(self):
         email = self.cleaned_data.get("email")
-        if not "gmail.com" in email:
+        if not "gmail.com" in email:  # TODO: validation that usually should be changed
             raise forms.ValidationError("Email has to be gmail.com")
         return email
 
