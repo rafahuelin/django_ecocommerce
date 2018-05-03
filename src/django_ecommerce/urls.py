@@ -22,7 +22,7 @@ from django.urls import path, include
 
 from accounts.views import LoginView, RegisterView, guest_register_view
 from addresses.views import checkout_address_create_view, checkout_address_reuse_view
-from billing.views import payment_method_view
+from billing.views import payment_method_view, payment_method_create_view
 from carts.views import cart_home, cart_detail_api_view
 from .views import home_page, about_page, contact_page
 
@@ -35,6 +35,7 @@ urlpatterns = [
     path('checkout/address/create/', checkout_address_create_view, name='checkout_address_create'),
     path('checkout/address/reuse/', checkout_address_reuse_view, name='checkout_address_reuse'),
     path('billing/payment-method/', payment_method_view, name='billing-payment-method'),
+    path('billing/payment-method/create/', payment_method_create_view, name='billing-payment-method-endpoint'),
     path('register/guest/', guest_register_view, name='guest_register'),
     path('logout/', LogoutView.as_view(), name='logout'),
     path('register/', RegisterView.as_view(), name='register'),
