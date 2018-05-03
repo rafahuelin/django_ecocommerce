@@ -174,6 +174,7 @@ EMAIL_PORT = get_secret('EMAIL_PORT')
 EMAIL_USE_TLS = True
 
 
-# Stripe secret key
+# Stripe
 
 STRIPE_SECRET_KEY = get_secret('STRIPE_SECRET_KEY')
+STRIPE_PUB_KEY = get_secret('STRIPE_PUB_KEY')
