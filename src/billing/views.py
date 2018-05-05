@@ -7,7 +7,7 @@ from .models import BillingProfile, Card
 
 import stripe
 
-stripe.api_key = settings.STRIPE_SECRET_KEY
+stripe.api_key = settings.STRIPE_SECRET_KEY  # TODO: could be improved using getattr(settings, "STRIPE_SECRET_KEY, "o2i34yo5uyo324uy5oo43y5u2y")  or instead of writing a default run an error if the key isn´t set in settings.py
 STRIPE_PUB_KEY = settings.STRIPE_PUB_KEY
 
 

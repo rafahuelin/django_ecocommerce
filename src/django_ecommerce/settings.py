@@ -73,6 +73,13 @@ AUTH_USER_MODEL = 'accounts.User'  # changes the built-in user model to ours
 FORCE_SESSION_TO_ONE = False
 FORCE_INACTIVE_USER_ENDSESSION = False
 
+
+# Stripe
+
+STRIPE_SECRET_KEY = get_secret('STRIPE_SECRET_KEY')
+STRIPE_PUB_KEY = get_secret('STRIPE_PUB_KEY')
+
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -172,9 +179,3 @@ EMAIL_HOST_USER = get_secret('EMAIL_HOST_USER')
 EMAIL_HOST_PASSWORD = get_secret('EMAIL_HOST_PASSWORD')
 EMAIL_PORT = get_secret('EMAIL_PORT')
 EMAIL_USE_TLS = True
-
-
-# Stripe
-
-STRIPE_SECRET_KEY = get_secret('STRIPE_SECRET_KEY')
-STRIPE_PUB_KEY = get_secret('STRIPE_PUB_KEY')
