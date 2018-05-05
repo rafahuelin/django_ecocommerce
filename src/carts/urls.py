@@ -16,4 +16,3 @@ urlpatterns = [
     path('checkout/', checkout_home, name='checkout'),
     path('update/', cart_update, name='update'),
 ]
-
