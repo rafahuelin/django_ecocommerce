@@ -1,3 +1,4 @@
+import json
 import requests
 
 from django.conf import settings
@@ -13,6 +14,10 @@ class Mailchimp(object):
         self.key = MAILCHIMP_API_KEY
         self.api_url = "https://{dc}.api.mailchimp.com/3.0".format(dc=MAILCHIMP_DATA_CENTER)
         self.list_id = MAILCHIMP_EMAIL_LIST_ID
+        self.list_endpoint = '{api_url}/lists/{list_id}'.format(
+            api_url=self.api_url,
+            list_id=self.list_id
+        )
 
     def check_subscription_status(self, email):
         # endpoint
@@ -23,14 +28,23 @@ class Mailchimp(object):
         r = requests.get(endpoint, auth=("", self.key))
         return r.json()
 
+    def check_valid_status(self, status):
+        choices = ['subscribed', 'unsubscribed', 'cleaned', 'pending']
+        if status not in choices:
+            raise ValueError("Not a valid choice for email status")
+        return status
+
     def add_email(self, email):
         # endpoint
         # method
         # data
         # auth
+        status = "subscribed"
+        self.check_valid_status(status)
         data = {
-            "email": email
+            "email_address": email,
+            "status": status
         }
-        endpoint = self.api_url
-        r = requests.post(endpoint, auth=("", self.key), data=data)
+        endpoint = self.list_endpoint + "/members"
+        r = requests.post(endpoint, auth=("", self.key), data=json.dumps(data))
         return r.json()
