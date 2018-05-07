@@ -4,6 +4,7 @@ from .models import MarketingPreference
 
 
 class MarketingPreferenceAdmin(admin.ModelAdmin):
+
     list_display = ['__str__', 'subscribed', 'updated']
     readonly_fields = ['mailchimp_msg', 'mailchimp_subscribed', 'timestamp', 'updated']
 
@@ -17,5 +18,6 @@ class MarketingPreferenceAdmin(admin.ModelAdmin):
                     'timestamp',
                     'updated'
         ]
+
 
 admin.site.register(MarketingPreference, MarketingPreferenceAdmin)
