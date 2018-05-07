@@ -51,7 +51,7 @@ class Mailchimp(object):
         # if check_status:
         #     return requests.get(endpoint, auth=("", self.key)).json()
         r = requests.put(endpoint, auth=("", self.key), data=json.dumps(data))
-        return r.json()
+        return r.status_code, r.json()
 
     def check_subscription_status(self, email):
         # endpoint
@@ -62,7 +62,7 @@ class Mailchimp(object):
         print(hashed_email)
         endpoint = self.get_members_endpoint() + "/" + hashed_email
         r = requests.get(endpoint, auth=("", self.key))
-        return r.json()
+        return r.status_code, r.json()
 
     def check_valid_status(self, status):
         choices = ['subscribed', 'unsubscribed', 'cleaned', 'pending']
@@ -75,16 +75,16 @@ class Mailchimp(object):
         # # method
         # # data
         # # auth
-        # status = "subscribed"
-        # self.check_valid_status(status)
-        # data = {
-        #     "email_address": email,
-        #     "status": status
-        # }
-        # endpoint = self.get_members_endpoint()
-        # r = requests.post(endpoint, auth=("", self.key), data=json.dumps(data))
-        # return r.json()
-        return self.change_subscription_status(email, status='subscribed')
+        status = "subscribed"
+        self.check_valid_status(status)
+        data = {
+            "email_address": email,
+            "status": status
+        }
+        endpoint = self.get_members_endpoint()
+        r = requests.post(endpoint, auth=("", self.key), data=json.dumps(data))
+        return r.status_code, r.json()
+        # return self.change_subscription_status(email, status='subscribed')
         # this returned code does the same as the commented code
 
     def unsubscribe(self, email):
